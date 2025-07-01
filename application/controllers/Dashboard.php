@@ -3,9 +3,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Dashboard extends CI_Controller {
 
-    public function index()
+    public function admin()
     {
-        $this->load->helper('url'); // Just in case it's not autoloaded
-        $this->load->view('dashboard');
+        $this->load->view('dashboard/admin_dashboard');
+    }
+
+    public function client()
+    {
+        $this->load->view('dashboard/client_dashboard');
     }
 }
