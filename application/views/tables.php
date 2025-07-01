@@ -371,43 +371,45 @@
                             <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
                         </div>
                         <div class="card-body">
-                            <div class="table-responsive">
-                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                    <thead>
-                                        <tr>
-                                            <th>Name</th>
-                                            <th>Position</th>
-                                            <th>Office</th>
-                                            <th>Age</th>
-                                            <th>Start date</th>
-                                            <th>Salary</th>
-                                        </tr>
-                                    </thead>
-                                    <tfoot>
-                                        <tr>
-                                            <th>Name</th>
-                                            <th>Position</th>
-                                            <th>Office</th>
-                                            <th>Age</th>
-                                            <th>Start date</th>
-                                            <th>Salary</th>
-                                        </tr>
-                                    </tfoot>
-                                    <tbody>
-                                        <tr>
-                                            <td>Tiger Nixon</td>
-                                            <td>System Architect</td>
-                                            <td>Edinburgh</td>
-                                            <td>61</td>
-                                            <td>2011/04/25</td>
-                                            <td>$320,800</td>
-                                        </tr>
-                                        <!-- Other table rows remain the same -->
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
+                                  <div class="table-responsive">
+                                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                        <thead>
+                                            <tr>
+                                                <th>ID</th>
+                                                <th>Etablissement</th>
+                                                <th>Ville</th>
+                                                <th>Responsable</th>
+                                                <th>Téléphone 1</th>
+                                                <th>Téléphone 2</th>
+                                                <th>Email</th>
+                                                <th>Actions</th>
+                                            </tr>
+                                        </thead>
+                                      <tbody>
+                                            <?php if(isset($table_data) && !empty($table_data)): ?>
+                                                <?php foreach ($table_data as $row): ?>
+                                                <tr>
+                                                    <td><?= htmlspecialchars($row->id) ?></td>
+                                                    <td><?= htmlspecialchars($row->etablissement) ?></td>
+                                                    <td><?= htmlspecialchars($row->ville) ?></td>
+                                                    <td><?= htmlspecialchars($row->responsable) ?></td>
+                                                    <td><?= htmlspecialchars($row->telephone1) ?></td>
+                                                    <td><?= htmlspecialchars($row->telephone2) ?></td>
+                                                    <td><?= htmlspecialchars($row->contact_email) ?></td>
+                                                    <td>
+                                                        <a href="<?= base_url('dashboard/edit/'.$row->id) ?>" class="btn btn-sm btn-primary">Edit</a>
+                                                        <a href="<?= base_url('dashboard/delete/'.$row->id) ?>" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure?')">Delete</a>
+                                                    </td>
+                                                </tr>
+                                                <?php endforeach; ?>
+                                            <?php else: ?>
+                                                <tr>
+                                                    <td colspan="8" class="text-center">No data available</td>
+                                                </tr>
+                                            <?php endif; ?>
+                                        </tbody>
+                                    </table>
+                                </div>
 
                 </div>
                 <!-- /.container-fluid -->
