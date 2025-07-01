@@ -36,7 +36,7 @@ $config['base_url'] = 'http://localhost/ci_admin/';
 | variable so that it is blank.
 |
 */
-$config['index_page'] = 'index.php';
+$config['index_page'] = '';
 
 /*
 |--------------------------------------------------------------------------

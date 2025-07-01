@@ -12,4 +12,8 @@ class Dashboard extends CI_Controller {
     {
         $this->load->view('dashboard/client_dashboard');
     }
+    public function tables() {
+    $this->load->view('tables');
+    }
+
 }
